@@ -6,7 +6,7 @@
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git://github.com/puffnfresh/fantasy-state.git"
+    "url": "git://github.com/puffnfresh/fantasy-states.git"
   },
   "keywords": [
     "fantasyland",
@@ -16,7 +16,7 @@
   "author": "Brian McKenna",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/puffnfresh/fantasy-state/issues"
+    "url": "https://github.com/puffnfresh/fantasy-states/issues"
   },
   "dependencies": {
     "daggy": "0.0.1",
