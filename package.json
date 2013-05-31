@@ -1,0 +1,25 @@
+{
+  "name": "fantasy-states",
+  "version": "0.0.0",
+  "description": "State control structure.",
+  "main": "state.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/puffnfresh/fantasy-state.git"
+  },
+  "keywords": [
+    "fantasyland",
+    "state",
+    "monad"
+  ],
+  "author": "Brian McKenna",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/puffnfresh/fantasy-state/issues"
+  },
+  "dependencies": {
+    "daggy": "0.0.1",
+    "fantasy-tuples": "0.0.1"
+  }
+}
