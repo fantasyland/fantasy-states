@@ -47,6 +47,61 @@ State.prototype.ap = function(a) {
     });
 };
 
+// Transformer
+State.StateT = function(M) {
+    var StateT = daggy.tagged('run');
+    StateT.lift = function(m) {
+        return StateT(function(b) {
+            return m;
+        });
+    };
+    StateT.of = function(a) {
+        return StateT(function(b) {
+            return M.of(Tuple2(a, b));
+        });
+    };
+    StateT.prototype.chain = function(f) {
+        var state = this;
+        return StateT(function(s) {
+            var result = state.run(s);
+        });
+    };
+    StateT.get = StateT(function(s) {
+        return M.of(Tuple2(s, s));
+    });
+    StateT.modify = function(f) {
+        return StateT(function(s) {
+            return M.of(Tuple2(null, f(s)));
+        });
+    };
+    StateT.put = function(s) {
+        return StateT.modify(function(a) {
+            return s;
+        });
+    };
+    StateT.prototype.eval = function(s) {
+        return this.run(s).chain(function(t) {
+            return t._1;
+        });
+    };
+    StateT.prototype.exec = function(s) {
+        return this.run(s).chain(function(t) {
+            return t._2;
+        });
+    };
+    StateT.prototype.map = function(f) {
+        return this.chain(function(a) {
+            return StateT.of(f(a));
+        });
+    };
+    StateT.prototype.ap = function(a) {
+        return this.chain(function(f) {
+            return a.map(f);
+        });
+    };
+    return StateT;
+};
+
 // Export
 if(typeof module != 'undefined')
     module.exports = State;
