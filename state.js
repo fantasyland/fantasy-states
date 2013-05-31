@@ -28,7 +28,7 @@ State.put = function(s) {
         return s;
     });
 };
-State.prototype.eval = function(s) {
+State.prototype.evalState = function(s) {
     return this.run(s)._1;
 };
 State.prototype.exec = function(s) {
@@ -79,7 +79,7 @@ State.StateT = function(M) {
             return s;
         });
     };
-    StateT.prototype.eval = function(s) {
+    StateT.prototype.evalState = function(s) {
         return this.run(s).chain(function(t) {
             return t._1;
         });
