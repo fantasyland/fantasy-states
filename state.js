@@ -1,6 +1,6 @@
 var Tuple2 = require('fantasy-tuples').Tuple2,
     daggy = require('daggy'),
-    State = daggy.tagged('runState');
+    State = daggy.tagged('run');
 
 // Methods
 State.of = function(a) {
@@ -11,8 +11,8 @@ State.of = function(a) {
 State.prototype.chain = function(f) {
     var state = this;
     return State(function(s) {
-        var result = state.runState(s);
-        return f(result._1).runState(result._2);
+        var result = state.run(s);
+        return f(result._1).run(result._2);
     });
 };
 State.get = State(function(s) {
@@ -29,10 +29,10 @@ State.put = function(s) {
     });
 };
 State.prototype.eval = function(s) {
-    return this.runState(s)._1;
+    return this.run(s)._1;
 };
 State.prototype.exec = function(s) {
-    return this.runState(s)._2;
+    return this.run(s)._2;
 };
 
 // Derived
