@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "description": "State control structure.",
   "main": "state.js",
-  "scripts": {},
+  "scripts": {
+    "test": "node_modules/.bin/grumble test",
+    "build": "node_modules/.bin/grumble"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/puffnfresh/fantasy-states.git"
@@ -18,8 +21,14 @@
   "bugs": {
     "url": "https://github.com/puffnfresh/fantasy-states/issues"
   },
+  "grumble": {
+    "export": "State"
+  },
   "dependencies": {
     "daggy": "0.0.1",
     "fantasy-tuples": "0.0.1"
+  },
+  "devDependencies": {
+    "grumble": "0.0.1"
   }
 }
