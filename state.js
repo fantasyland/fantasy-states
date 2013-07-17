@@ -64,6 +64,9 @@ State.StateT = function(M) {
         var state = this;
         return StateT(function(s) {
             var result = state.run(s);
+            return result.chain(function(t) {
+                return f(t._1).run(t._2);
+            });
         });
     };
     StateT.get = StateT(function(s) {
