@@ -83,12 +83,12 @@ State.StateT = function(M) {
         });
     };
     StateT.prototype.evalState = function(s) {
-        return this.run(s).chain(function(t) {
+        return this.run(s).map(function(t) {
             return t._1;
         });
     };
     StateT.prototype.exec = function(s) {
-        return this.run(s).chain(function(t) {
+        return this.run(s).map(function(t) {
             return t._2;
         });
     };
