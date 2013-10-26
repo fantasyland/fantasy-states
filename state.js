@@ -52,7 +52,9 @@ State.StateT = function(M) {
     var StateT = daggy.tagged('run');
     StateT.lift = function(m) {
         return StateT(function(b) {
-            return m;
+            return m.map(function(c) {
+                return Tuple2(c, b);
+            });
         });
     };
     StateT.of = function(a) {
