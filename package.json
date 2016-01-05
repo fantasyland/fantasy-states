@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/puffnfresh/fantasy-states.git"
+    "url": "git://github.com/fantasyland/fantasy-states.git"
   },
   "keywords": [
     "fantasyland",
@@ -19,16 +19,22 @@
   "author": "Brian McKenna",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/puffnfresh/fantasy-states/issues"
-  },
-  "grumble": {
-    "export": "State"
+    "url": "https://github.com/fantasyland/fantasy-states/issues"
   },
   "dependencies": {
     "daggy": "0.0.1",
-    "fantasy-tuples": "0.0.1"
+    "fantasy-combinators": "0.0.1",
+    "fantasy-tuples": "0.0.x"
   },
   "devDependencies": {
-    "grumble": "0.0.1"
-  }
+    "nodeunit": "0.9.x",
+    "fantasy-check": "0.1.6",
+    "fantasy-helpers": "0.0.x",
+    "fantasy-identities": "0.0.x"
+  },
+  "scripts": {
+      "test": "node --harmony_destructuring node_modules/.bin/nodeunit test/*.js"
+  },
+  "files": ["fantasy-eithers.js", "src/*.js"],
+  "main": "fantasy-eithers.js"
 }
