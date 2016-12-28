@@ -3,6 +3,7 @@
 const λ = require('./lib/test');
 const applicative = λ.applicative;
 const functor = λ.functor;
+const mfunctor = λ.mfunctor;
 const monad = λ.monad;
 const identity = λ.identity;
 const State = λ.State;
@@ -51,5 +52,10 @@ exports.stateT = {
     'All (Monad)': monad.laws(λ)(State.StateT(Identity), run),
     'Left Identity (Monad)': monad.leftIdentity(λ)(State.StateT(Identity), run),
     'Right Identity (Monad)': monad.rightIdentity(λ)(State.StateT(Identity), run),
-    'Associativity (Monad)': monad.associativity(λ)(State.StateT(Identity), run)
+    'Associativity (Monad)': monad.associativity(λ)(State.StateT(Identity), run),
+
+    //MFunctor tests
+    'Composition (MFunctor)': mfunctor.composition(λ)(State.StateT(Identity), run),
+    'Identity (MFunctor)': mfunctor.identity(λ)(State.StateT(Identity), run),
+
 };
